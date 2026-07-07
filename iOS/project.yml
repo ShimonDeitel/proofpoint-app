@@ -1,0 +1,75 @@
+name: ProofPoint
+options:
+  bundleIdPrefix: com.shimondeitel.breadproof
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: "W7Q885Q59C"
+    CODE_SIGN_STYLE: Automatic
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+targets:
+  ProofPoint:
+    type: application
+    platform: iOS
+    sources:
+      - path: ProofPoint
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.breadproof
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: ProofPoint/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+  ProofPointTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: ProofPointTests
+      - path: ProofPoint.storekit
+    dependencies:
+      - target: ProofPoint
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.breadproof.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+  ProofPointUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: ProofPointUITests
+    dependencies:
+      - target: ProofPoint
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.breadproof.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  ProofPoint:
+    build:
+      targets:
+        ProofPoint: all
+        ProofPointTests: [test]
+        ProofPointUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: ProofPoint.storekit
+    test:
+      config: Debug
+      storeKitConfiguration: ProofPoint.storekit
+      targets:
+        - ProofPointTests
+        - ProofPointUITests
+    archive:
+      config: Release

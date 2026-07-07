@@ -1,0 +1,29 @@
+{
+  "identifier" : "proofpoint",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "proofpoint_pro",
+      "localizations" : [
+        {
+          "description" : "Multi-stage proof timers with push alerts",
+          "displayName" : "Proof Point Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.shimondeitel.breadproof.pro",
+      "referenceName" : "Proof Point Pro",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_locale" : "en_US"
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
